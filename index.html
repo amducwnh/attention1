@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ Sơ Cá Nhân | Duc Anh</title>
+    <!-- Tải Tailwind CSS để tạo giao diện đẹp và responsive -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tải Font Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Icon (Lucide) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Thiết lập font Inter mặc định */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Màu nền nhẹ */
+        }
+        /* Style cho nút cuộn lên */
+        #scrollToTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 12px 16px;
+            border-radius: 9999px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            transition: opacity 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Logo/Tên -->
+            <a href="#" class="text-2xl font-extrabold text-indigo-600 hover:text-indigo-700 transition duration-300">
+                Duc Anh
+            </a>
+            <!-- Menu cho Desktop -->
+            <nav class="hidden md:flex space-x-6">
+                <a href="#about" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300">Introduce</a>
+                <a href="#skills" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300">Skills</a>
+                <a href="#contact" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300">Contact</a>
+            </nav>
+            <!-- Nút Menu cho Mobile -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition duration-300">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+        <!-- Menu Mobile Overlay -->
+        <div id="mobile-menu" class="hidden md:hidden absolute w-full bg-white shadow-xl">
+            <nav class="flex flex-col space-y-2 p-4">
+                <a href="#about" class="py-2 px-3 text-gray-700 hover:bg-indigo-50 rounded-lg transition duration-300" onclick="toggleMobileMenu()">Introduce</a>
+                <a href="#skills" class="py-2 px-3 text-gray-700 hover:bg-indigo-50 rounded-lg transition duration-300" onclick="toggleMobileMenu()">Skills</a>
+                <a href="#contact" class="py-2 px-3 text-gray-700 hover:bg-indigo-50 rounded-lg transition duration-300" onclick="toggleMobileMenu()">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Phần 1: Giới Thiệu Chung -->
+        <section id="about" class="pt-20 pb-16 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <!-- Ảnh đại diện -->
+                    <div class="flex-shrink-0">
+                        <!-- Vui lòng thay thế đường link ảnh placeholder bên dưới bằng đường link ảnh của bạn. -->
+                        <img src="YOUR_IMAGE_URL_HERE" 
+                             alt="Ảnh đại diện của Duc Anh" 
+                             class="w-44 h-44 rounded-full object-cover border-4 border-indigo-200 shadow-xl"
+                             onerror="this.onerror=null;this.src='https://placehold.co/180x180/7F56D9/ffffff?text=AVATAR'">
+                    </div>
+                    <!-- Nội dung giới thiệu -->
+                    <div class="text-center md:text-left">
+                        <p class="text-lg text-indigo-600 font-semibold mb-2">Hello everybody, I'm  </p>
+                        <h1 class="text-5xl font-extrabold text-gray-900 mb-4">
+                            DUC ANH
+                        </h1>
+                        <h2 class="text-2xl font-semibold text-gray-700 mb-4">
+                            Programming language|Social networking services
+                        </h2>
+                        <p class="text-gray-600 leading-relaxed max-w-3xl">
+                            I'm a social network service programmer/expert with 3 years of experience supporting all aspects of social services to create a safe network environment, 
+         helping to avoid "Peaceful Developments" issues online.
+                        </p>
+                        <div class="mt-6 flex justify-center md:justify-start space-x-4">
+                            <!-- Nút Tải CV -->
+                            <a href="#" class="bg-indigo-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:bg-indigo-700 transition duration-300 flex items-center">
+                                <i data-lucide="download" class="w-5 h-5 mr-2"></i>
+                                Download CV
+                            </a>
+                            <!-- Nút Liên hệ -->
+                            <a href="#contact" class="bg-white text-indigo-600 border border-indigo-600 px-6 py-3 rounded-xl font-semibold shadow-lg hover:bg-indigo-50 transition duration-300 flex items-center">
+                                <i data-lucide="mail" class="w-5 h-5 mr-2"></i>
+                                Contact
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phần 2: Kỹ Năng -->
+        <section id="skills" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center text-gray-900 mb-4">Skills</h2>
+                <p class="text-xl text-center text-gray-600 mb-12">Tools and technologies I'm proficient in.</p>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
+                    <!-- Kỹ năng mẫu 1 -->
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1 text-center border border-gray-100">
+                        <i data-lucide="code" class="w-8 h-8 text-indigo-600 mx-auto mb-3"></i>
+                        <p class="font-semibold text-gray-800">HTML & CSS</p>
+                        <span class="text-sm text-gray-500">Specialized</span>
+                    </div>
+                    <!-- Kỹ năng mẫu 2 -->
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1 text-center border border-gray-100">
+                        <i data-lucide="layers" class="w-8 h-8 text-indigo-600 mx-auto mb-3"></i>
+                        <p class="font-semibold text-gray-800">JavaScript</p>
+                        <span class="text-sm text-gray-500">Advanced</span>
+                    </div>
+                    <!-- Kỹ năng mẫu 3 -->
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1 text-center border border-gray-100">
+                        <i data-lucide="git-branch" class="w-8 h-8 text-indigo-600 mx-auto mb-3"></i>
+                        <p class="font-semibold text-gray-800">React/Angular</p>
+                        <span class="text-sm text-gray-500">Good</span>
+                    </div>
+                    <!-- Kỹ năng mẫu 4 -->
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1 text-center border border-gray-100">
+                        <i data-lucide="database" class="w-8 h-8 text-indigo-600 mx-auto mb-3"></i>
+                        <p class="font-semibold text-gray-800">SQL/MongoDB</p>
+                        <span class="text-sm text-gray-500">Basic</span>
+                    </div>
+                    <!-- Kỹ năng mẫu 5 -->
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1 text-center border border-gray-100">
+                        <i data-lucide="palette" class="w-8 h-8 text-indigo-600 mx-auto mb-3"></i>
+                        <p class="font-semibold text-gray-800">Figma</p>
+                        <span class="text-sm text-gray-500">UI design</span>
+                    </div>
+                    <!-- Kỹ năng mẫu 6 -->
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1 text-center border border-gray-100">
+                        <i data-lucide="projector" class="w-8 h-8 text-indigo-600 mx-auto mb-3"></i>
+                        <p class="font-semibold text-gray-800">Project Management</p>
+                        <span class="text-sm text-gray-500">Organization</span>
+                    </div>
+                    <!-- Thêm nhiều kỹ năng khác tại đây -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Phần 3: Dự Án/Kinh Nghiệm đã được xóa -->
+
+        <!-- Phần 4: Liên Hệ -->
+        <section id="contact" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+                <h2 class="text-4xl font-bold text-center text-gray-900 mb-4">Contact me to</h2>
+                <p class="text-xl text-center text-gray-600 mb-12">It was a pleasure working with you!</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <!-- Email -->
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100">
+                        <i data-lucide="inbox" class="w-8 h-8 text-indigo-600 mx-auto mb-3"></i>
+                        <h3 class="text-lg font-semibold text-gray-900">Email</h3>
+                        <a href="mailto:iamducwnhhh@gmail.com" class="text-indigo-600 hover:underline">
+                            iamducwnhhh@gmail.com
+                        </a>
+                    </div>
+                    <!-- Điện thoại -->
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100">
+                        <i data-lucide="phone" class="w-8 h-8 text-indigo-600 mx-auto mb-3"></i>
+                        <h3 class="text-lg font-semibold text-gray-900">Phone number</h3>
+                        <a href="tel:0359326721" class="text-indigo-600 hover:underline">
+                            0359316721
+                        </a>
+                    </div>
+                    <!-- Địa điểm -->
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100">
+                        <i data-lucide="map-pin" class="w-8 h-8 text-indigo-600 mx-auto mb-3"></i>
+                        <h3 class="text-lg font-semibold text-gray-900">Location</h3>
+                        <p class="text-gray-600">
+                            Hanoi, Vietnam. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex justify-center space-x-6 mb-4">
+                <!-- Liên kết Mạng xã hội -->
+                <a href="https://github.com/amducwnh" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
+                    <i data-lucide="github" class="w-6 h-6"></i>
+                </a>
+                <a href="https://linkedin.com/in/nguyenvanan" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
+                    <i data-lucide="linkedin" class="w-6 h-6"></i>
+                </a>
+                <a href="https://facebook.com/iamducwnh" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
+                    <i data-lucide="facebook" class="w-6 h-6"></i>
+                </a>
+            </div>
+            <p class="text-gray-400 text-sm">
+                &copy; 2025 by Duc Anh.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Nút cuộn lên đầu trang -->
+    <button id="scrollToTopBtn" class="bg-indigo-500 text-white hover:bg-indigo-600">
+        <i data-lucide="arrow-up" class="w-5 h-5"></i>
+    </button>
+
+    <!-- JavaScript cho giao diện -->
+    <script>
+        // Khởi tạo icons Lucide
+        lucide.createIcons();
+
+        // 1. Chức năng Menu Mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        mobileMenuButton.addEventListener('click', toggleMobileMenu);
+
+        // 2. Chức năng Cuộn lên đầu trang (Scroll To Top)
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+        // Khi người dùng cuộn xuống 20px từ đầu tài liệu, hiển thị nút
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollToTopBtn.style.display = "block";
+                scrollToTopBtn.style.opacity = "1";
+            } else {
+                scrollToTopBtn.style.opacity = "0";
+                setTimeout(() => {
+                    if (document.body.scrollTop <= 20 && document.documentElement.scrollTop <= 20) {
+                        scrollToTopBtn.style.display = "none";
+                    }
+                }, 300); // Đợi transition kết thúc
+            }
+        }
+
+        // Khi người dùng click vào nút, cuộn lên đầu tài liệu
+        scrollToTopBtn.addEventListener("click", function() {
+            window.scrollTo({
+                top: 0,
+              behavior: 'smooth'
+            });
+        });
+    </script>
